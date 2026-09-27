@@ -162,6 +162,7 @@ The Power BI workflow included:
 - Established relationships between tables
 
 ### Data Modelling
+
 The model uses relationships between:
 
 - Plant Master
@@ -368,6 +369,22 @@ It includes:
 - Monthly Receivables vs Collection
 
 This page provides a consolidated view of billing and collection performance.
+
+---
+
+# Dashboard Screenshots
+
+## Renewable Energy Performance Overview
+
+![Renewable Energy Performance Overview](dashboard_overview.png)
+
+## Plant Performance & Loss Analysis
+
+![Plant Performance & Loss Analysis](plant_performance.png)
+
+## Billing & Receivables Analysis
+
+![Billing & Receivables Analysis](billing_receivables.png)
 
 ---
 
