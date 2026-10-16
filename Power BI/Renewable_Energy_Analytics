@@ -1,0 +1,44 @@
+# Power BI Dashboard
+
+This folder contains the Power BI report developed for the Renewable Energy Performance Analysis project.
+
+## Dashboard Pages
+
+### 1. Renewable Energy Performance Overview
+- Total energy generation and export
+- Total billing and outstanding collections
+- Monthly generation versus export
+- Plant-level performance overview
+
+### 2. Plant Performance & Loss Analysis
+- Energy generation and export by plant
+- Capacity Utilization Factor (CUF)
+- Transmission loss analysis
+- RKVAH loss analysis
+
+### 3. Billing & Receivables Analysis
+- Total invoice amount
+- Total receivables and collections
+- Outstanding collection amount
+- Invoice status distribution
+- Monthly receivables versus collections
+
+## Key Features
+- Interactive report pages
+- KPI cards and charts
+- Filters and slicers for data exploration
+- Business-focused operational and financial insights
+
+## Tools Used
+- Microsoft Power BI
+- Power Query
+- DAX
+- Data modelling
+
+## Project File
+
+`Renewable_Energy_Analytics.pbix`
+
+## Data Quality Note
+
+The source data contains negative transmission-loss values and export-efficiency values above 100% for certain plants. These require further validation before drawing operational conclusions.
