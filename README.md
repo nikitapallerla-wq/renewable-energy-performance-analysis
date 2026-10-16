@@ -1,444 +1,197 @@
 # Renewable Energy Performance Analysis
 
+An end-to-end analytics project focused on renewable energy generation, plant performance, billing, receivables, collections, transmission losses, and RKVAH losses using Microsoft Excel, PostgreSQL, SQL, and Power BI.
+
 ## Project Overview
 
-This project analyzes renewable energy generation, energy export, plant performance, billing, receivables, collections, transmission losses, and RKVAH losses using **PostgreSQL, SQL, and Power BI**.
+Renewable energy businesses need clear visibility into energy generation, plant-level performance, billing, and collections. This project analyzes operational and financial data to develop interactive dashboards, monitor key performance indicators (KPIs), and identify data patterns requiring further investigation.
 
-The objective of the project is to transform operational and financial data into actionable insights that can help monitor plant performance, identify performance variations, track billing and receivables, and highlight areas requiring further investigation.
+The project combines Excel analysis, SQL queries, and Power BI dashboards to present operational and financial information in a business-focused format.
 
-The project combines **SQL-based analysis** with an interactive **Power BI dashboard** to provide both detailed analytical queries and management-level visual reporting.
+## Project Objectives
 
----
+- Analyze monthly energy generation and export.
+- Compare generation and export across plants.
+- Monitor billing, receivables, and collections.
+- Track outstanding collection amounts.
+- Analyze transmission losses and RKVAH losses.
+- Develop interactive dashboards for operational and financial reporting.
+- Identify data-quality issues that require further validation.
 
-## Business Objectives
+## Tools and Technologies
 
-The project focuses on the following business objectives:
-
-- Analyze monthly and plant-wise energy generation
-- Compare energy generated with energy exported
-- Measure export efficiency
-- Analyze plant-level generation performance
-- Analyze billing and invoice performance
-- Track receivables and collections
-- Identify outstanding receivables
-- Analyze plant-wise financial performance
-- Analyze transmission losses
-- Analyze RKVAH losses
-- Compare plant performance using operational KPIs
-- Identify areas requiring further investigation
-- Build an interactive Power BI dashboard for management-level analysis
-
----
-
-## Tools & Technologies
-
-### Database & SQL
-- PostgreSQL
-- SQL
-- pgAdmin
-
-### Business Intelligence
-- Microsoft Power BI
-- DAX
-- Power Query
-- Data Modelling
-
-### Analysis Techniques
-- Data validation
-- Aggregations
-- GROUP BY and HAVING
-- JOINs
-- CASE statements
-- Subqueries
-- CTEs
-- Window functions
-- DENSE_RANK
-- NULL handling
-- Percentage calculations
-- KPI development
-- Interactive filtering
-
----
-
-## Dataset & Data Model
-
-The project uses multiple tables representing different areas of renewable energy operations and financial performance.
-
-### Main Tables
-
-| Table | Purpose |
+| Tool | Purpose |
 |---|---|
-| `Monthly_Generation` | Monthly plant-level generation, export and import data |
-| `Billing` | Invoice, billing, tariff and receivable information |
-| `Receivable` | Receivable, collection, payment and outstanding information |
-| `Plant_Master` | Plant and location master information |
-| `TL` / `Transmission_Loss` | Transmission loss information |
-| `RKVAH` | RKVAH loss information |
-| `Monthly_MIS` | Monthly management information |
-| `Date_Table` | Date dimension used for Power BI analysis |
+| Microsoft Excel | Data analysis, PivotTables, PivotCharts, KPIs, and interactive dashboard |
+| PostgreSQL | Relational database and SQL analysis |
+| SQL | Data aggregation, joins, filtering, and business analysis |
+| Microsoft Power BI | Interactive dashboards, visualizations, data modelling, and DAX |
 
-The Power BI data model connects operational, financial and master data to enable interactive plant-level and time-based analysis.
+## Project Workflow
+
+1. **Excel Analysis:** Analyze operational and financial data using PivotTables, charts, and slicers.
+2. **SQL Analysis:** Use analytical queries to investigate generation, billing, collections, plant performance, and losses.
+3. **Power BI Reporting:** Build interactive dashboards to visualize operational and financial KPIs.
+4. **Business Analysis:** Interpret performance patterns and identify data-quality issues requiring investigation.
 
 ---
 
-# Analysis Approach
+# 1. Excel Analysis
 
-The analysis was performed in two major stages.
+The Excel workbook contains data analysis sheets, PivotTables, PivotCharts, and an executive dashboard with interactive slicers.
 
-## 1. SQL Analysis using PostgreSQL
+## Executive Dashboard
 
-PostgreSQL was used to perform detailed data analysis and business-level calculations.
+The dashboard provides a consolidated view of energy generation, energy export, billing, collections, and operational loss indicators.
 
-The SQL analysis included:
+![Renewable Energy Excel Dashboard](01_Excel_Analysis/Renewable_Energy_Analytics_Dashboard.png)
 
-### Data Validation
-- Record-count validation
-- Duplicate plant-month checks
-- NULL-value checks
-- Data consistency checks
+### Dashboard Features
 
-### Energy Generation Analysis
-- Total generation by plant
-- Monthly generation
-- Financial-year generation
-- Highest and lowest performing plants
-- Top and bottom plants by generation
-- Generation contribution by plant
-- Generation ranking
-- Generation vs export analysis
-
-### Export Analysis
-- Total energy exported
-- Monthly export
-- Plant-wise export
-- Export efficiency
-- Average export efficiency
-- Highest and lowest exporting plants
-
-### Billing Analysis
+- Total energy generation and export
 - Total billing
-- Plant-wise billing
-- Export units billed
-- Average tariff
-- Highest and lowest invoices
-- Financial-year billing analysis
-- TDS analysis
-- Receivable analysis
+- Outstanding collection amount
+- Monthly generation versus export
+- Plant-wise generation versus export
+- Plant-wise export efficiency
+- Monthly receivables versus collection
+- Transmission loss analysis
+- Average RKVAH loss by plant
+- Interactive Month, Plant ID, and Financial Year slicers
 
-### Receivables Analysis
-- Total receivables
-- Receivable percentage
-- Outstanding amounts
-- Outstanding amount by plant
-- Highest outstanding plant
-- Monthly receivables
-- Plant-wise receivable percentage
-- Billing and generation comparison
+**Excel Workbook:** `01_Excel_Analysis/Renewable_Energy_Analytics.xlsx`
 
-### Loss Analysis
-- Average transmission loss percentage
-- Transmission loss by plant
-- Monthly transmission loss
-- Total transmission loss units
-- Highest and lowest loss periods
-- Financial-year loss analysis
-
-The SQL analysis contains **60 project-level analytical questions and queries** covering operational and financial performance.
+[Explore Excel Analysis](01_Excel_Analysis/)
 
 ---
 
-# 2. Power BI Analysis
+# 2. Power BI Dashboard
 
-Power BI was used to convert the analytical results into an interactive dashboard.
+The Power BI report contains three analytical pages covering operational performance, plant-level losses, and financial collections.
 
-The Power BI workflow included:
+## Page 1: Renewable Energy Performance Overview
 
-### Data Preparation
-- Imported operational and financial tables
-- Removed unnecessary fields
-- Validated data types
-- Created required keys
-- Prepared date-related fields
-- Established relationships between tables
+- Total energy generation
+- Total energy export
+- Total billing
+- Outstanding collection amount
+- Monthly generation versus export
+- Plant-level performance overview
 
-### Data Modelling
+![Renewable Energy Power BI Dashboard Overview](02_Power_BI/dashboard_overview.png)
 
-The model uses relationships between:
+## Page 2: Plant Performance & Loss Analysis
 
-- Plant Master
-- Monthly Generation
-- Billing
-- Receivable
-- Transmission Loss
-- RKVAH
-- Monthly MIS
-- Date Table
+- Plant-wise energy generation and export
+- Capacity Utilization Factor (CUF)
+- Transmission loss analysis
+- RKVAH loss analysis
 
-### DAX Measures
+![Plant Performance and Loss Analysis](02_Power_BI/plant_performance.png)
 
-Measures were created for important KPIs such as:
-
-- Total Generation
-- Total Export
-- Total Billing
-- Total Receivable
-- Total Collection
-- Outstanding Receivables
-- Collection Rate
-- Average CUF
-- Average Transmission Loss
-- Average RKVAH Loss
-
-### Interactive Analysis
-
-The dashboard includes interactive filters for:
-
-- Month
-- State
-- Plant
-
-These filters allow users to analyze the KPIs and visuals at different levels of detail.
-
----
-
-# Key KPIs
-
-The Power BI dashboard provides a consolidated view of the major operational and financial KPIs.
-
-| KPI | Dashboard Value |
-|---|---:|
-| Total Generation | ~97M kWh |
-| Total Export | ~96M kWh |
-| Total Billing | ~₹341M |
-| Total Receivable | ~₹340M |
-| Total Collection | ~₹252M |
-| Outstanding Receivables | ~₹88.30M |
-| Collection Rate | 74.05% |
-| Plants Analyzed | 25 |
-| Billing Records | 300 |
-
-> KPI values shown above are based on the current Power BI dashboard and may change when dashboard filters are applied.
-
----
-
-# Key Findings
-
-## Energy Generation & Export
-
-- Total energy generation is approximately **97M kWh**.
-- Total energy export is approximately **96M kWh**.
-- Generation and export were analyzed at both monthly and plant levels.
-- The monthly trend shows significant variation in generation across the analysis period.
-- Plant-level generation varies considerably, allowing high- and low-performing plants to be identified.
-- Generation contribution was calculated to understand the share of individual plants in overall generation.
-
----
-
-## Plant Performance
-
-Plant performance was analyzed using:
-
-- Total generation
-- Average monthly generation
-- Average CUF
-- Export performance
-- Transmission losses
-- RKVAH losses
-
-The Power BI dashboard provides a comparison of generation and average CUF across plants.
-
-This helps identify plants that contribute significantly to total generation and plants requiring further operational investigation.
-
----
-
-## Billing Performance
-
-The billing analysis provides visibility into:
+## Page 3: Billing & Receivables Analysis
 
 - Total invoice amount
-- Plant-wise billing
-- Monthly billing
-- Export units billed
-- Average tariff
-- Invoice-level performance
-- Financial-year billing
-
-The overall billing value shown in the dashboard is approximately **₹341M**.
-
----
-
-## Receivables & Collections
-
-The receivables dashboard provides visibility into:
-
-- Total receivables
-- Total collections
-- Outstanding receivables
-- Collection rate
-- Plant-wise receivables
-- Plant-wise outstanding amounts
-- Monthly receivables and collections
+- Total receivables and collections
+- Outstanding collection amount
 - Invoice status distribution
+- Monthly receivables versus collection
+- Plant-wise outstanding receivables
 
-The current dashboard shows:
+![Billing and Receivables Dashboard](02_Power_BI/billing_receivables.png)
 
-- **Total Receivable:** ~₹340M
-- **Total Collection:** ~₹252M
-- **Outstanding Receivables:** ~₹88.30M
-- **Collection Rate:** 74.05%
+**Power BI Report:** `02_Power_BI/Renewable_Energy_Analytics.pbix`
 
-Plant-level analysis helps identify where receivables and outstanding amounts are concentrated.
-
----
-
-## Transmission Loss Analysis
-
-Transmission losses were analyzed using:
-
-- Average transmission loss percentage by plant
-- Monthly average transmission loss
-- Total transmission loss units
-- Highest and lowest loss periods
-- Financial-year loss analysis
-
-The dashboard provides a plant-level comparison of average transmission losses.
-
-Some loss values in the underlying data are negative, so these values have been treated as **data points requiring further investigation** rather than automatically interpreted as operational performance.
+[Explore Power BI Files](02_Power_BI/)
 
 ---
 
-## RKVAH Loss Analysis
+# 3. SQL Analysis
 
-RKVAH losses were analyzed at the plant level and visualized in Power BI.
+SQL was used to analyze operational and financial performance, compare plants, and investigate billing and collection patterns.
 
-The dashboard provides a comparison of average RKVAH loss percentage across plants, allowing differences in plant-level performance to be identified.
+### Analysis Areas
 
----
+- Monthly energy generation and export
+- Plant-wise performance comparisons
+- Billing and receivables
+- Collection performance
+- Outstanding amounts
+- Transmission losses
+- RKVAH losses
+- Aggregations, joins, conditional logic, and analytical queries
 
-# Power BI Dashboard
+**SQL Script:** `03_SQL/Renewable_Energy_Analysis.sql`
 
-The Power BI report contains three analytical pages.
-
-## Page 1 — Energy Performance Overview
-
-This page provides a consolidated overview of:
-
-- Total Generation
-- Total Export
-- Total Billing
-- Outstanding Receivables
-- Monthly Generation vs Export
-- Generation by Plant
-- Month filter
-- State filter
-- Plant filter
-
-The page provides a high-level view of operational and financial performance.
+[Explore SQL Analysis](03_SQL/)
 
 ---
 
-## Page 2 — Plant Performance & Loss Analysis
+# Key Performance Indicators
 
-This page focuses on operational performance and losses.
+The following figures represent project-level totals recorded in the dashboards before interactive filters are applied.
 
-It includes:
+| KPI | Reported Value |
+|---|---:|
+| Total Energy Generation | 96.52 million kWh |
+| Total Energy Export | 96.31 million kWh |
+| Total Billing | Approximately ₹340.59 million |
+| Total Receivables | Approximately ₹340.25 million |
+| Total Collection | Approximately ₹251.95 million |
+| Outstanding Collection Amount | Approximately ₹88.30 million |
+| Collection Rate | Approximately 74.05% |
 
-- Generation by Plant
-- Average CUF by Plant
-- Average Transmission Loss by Plant
-- Average RKVAH Loss by Plant
+**Metric definitions:** Outstanding collection amount is calculated as receivables minus amounts received. It differs from the billing-table difference between invoice amount and amount receivable.
 
-This page allows plant-level operational performance to be compared across multiple KPIs.
-
----
-
-## Page 3 — Billing & Receivables Analysis
-
-This page focuses on financial performance.
-
-It includes:
-
-- Total Invoice Amount
-- Total Receivable
-- Total Collection
-- Outstanding Receivables
-- Collection Rate
-- Total Receivable by Plant
-- Outstanding Receivables by Plant
-- Invoice Status Distribution
-- Monthly Receivables vs Collection
-
-This page provides a consolidated view of billing and collection performance.
+These values are based on the current project data and may differ from filtered dashboard results.
 
 ---
 
-# Dashboard Screenshots
+# Data Quality Considerations
 
-## Renewable Energy Performance Overview
+The analysis identified patterns that require validation before definitive operational conclusions can be drawn.
 
-![Renewable Energy Performance Overview](dashboard_overview.png)
+- **Negative transmission loss values:** Certain records contain negative transmission-loss units. The underlying source records, calculation methods, and measurement definitions require investigation.
+- **Export efficiency above 100%:** Certain plants show export efficiency above 100%. These values require validation against source measurements and business definitions.
+- **Metric interpretation:** Energy units, loss units, and loss percentages should be interpreted separately and not compared on an inappropriate common scale.
 
-## Plant Performance & Loss Analysis
-
-![Plant Performance & Loss Analysis](plant_performance.png)
-
-## Billing & Receivables Analysis
-
-![Billing & Receivables Analysis](billing_receivables.png)
+Unusual values are documented as data-quality observations rather than automatically treated as confirmed operational errors.
 
 ---
 
-# Key Analytical Observations
+# Business Value
 
-The analysis highlights several areas that can be investigated further:
+This project demonstrates how analytics can support renewable energy operations through:
 
-### 1. Generation varies significantly across plants
-
-Plant-level generation shows substantial variation, indicating different levels of contribution to overall energy generation.
-
-### 2. Generation and export closely track each other
-
-The dashboard shows a close relationship between total generation and total export across the analyzed period.
-
-### 3. Receivables require monitoring
-
-The dashboard shows approximately **₹88.30M in outstanding receivables**, making receivable monitoring an important financial-performance area.
-
-### 4. Collection performance can be monitored at plant level
-
-The **74.05% collection rate** provides a high-level view of collection performance, while plant-wise visuals help identify concentration of outstanding amounts.
-
-### 5. Loss analysis highlights areas for investigation
-
-Transmission and RKVAH loss comparisons reveal differences between plants and provide a basis for further operational investigation.
-
-### 6. Data-quality checks are important
-
-During SQL analysis, certain data-quality observations were identified, including negative loss values and export-efficiency calculations exceeding 100% for some plant-level records.
-
-These observations were treated as **data-quality or source-definition points requiring investigation**, rather than being directly interpreted as physical operating efficiency.
+- Consolidated operational and financial reporting
+- Monitoring of energy generation and export
+- Plant-level performance comparisons
+- Billing and collection visibility
+- Identification of unusual operational measurements
+- Interactive dashboards for business users
+- Data-driven investigation and reporting
 
 ---
 
-# SQL Analysis Highlights
-
-The SQL analysis demonstrates practical use of PostgreSQL for business analytics.
-
-Key SQL concepts used include:
+# Repository Structure
 
 ```text
-SELECT
-WHERE
-GROUP BY
-HAVING
-ORDER BY
-LIMIT
-JOIN
-CASE WHEN
-NULLIF
-Subqueries
-CTEs
-Window Functions
-DENSE_RANK
-Aggregate Functions
-Percentage Calculations
+renewable-energy-performance-analysis/
+│
+├── README.md
+│
+├── 01_Excel_Analysis/
+│   ├── README.md
+│   ├── Renewable_Energy_Analytics.xlsx
+│   └── Renewable_Energy_Analytics_Dashboard.png
+│
+├── 02_Power_BI/
+│   ├── README.md
+│   ├── Renewable_Energy_Analytics.pbix
+│   ├── dashboard_overview.png
+│   ├── plant_performance.png
+│   └── billing_receivables.png
+│
+└── 03_SQL/
+    ├── README.md
+    └── Renewable_Energy_Analysis.sql
